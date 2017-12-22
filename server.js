@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8000;
+var port = process.env.PORT || 8000;
 
 var yelp = require('yelp').createClient({
     consumer_key: 'f6TEXZpl19BGpCmvj4sFsA',
@@ -45,7 +45,7 @@ app.get('/restaurants', function (req, res) {
 
 
 app.listen(port, () => {
-    console.log('We are live on ' + port);
+    console.log('We are live on port ' + port);
 })
 
 
