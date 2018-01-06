@@ -34,6 +34,18 @@ function processYelpResponse(res, error, data) {
     res.json(data.businesses.map(TransformYelpResults));
 }
 
+app.get('/restaurants/:zipcode', function(request, response) {
+    var zipcode = request.params.zipcode;
+    yelp.search({
+        term: 'food',
+        location: zipcode,
+        limit: '10'
+    }, function (error, data) {
+        processYelpResponse(response, error, data);
+    });
+})
+
+
 app.get('/restaurants', function (req, res) {
     yelp.search({
         term: 'food',
