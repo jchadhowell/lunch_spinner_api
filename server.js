@@ -11,7 +11,7 @@ var yelp = require('yelp').createClient({
 
 
 app.get('/', function (req, res) {
-    res.json({ "message": "welcome" });
+    res.json({ "message": "spinner-api" });
 });
 
 function TransformYelpResults(yelpBusiness) {
